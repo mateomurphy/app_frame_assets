@@ -3,7 +3,7 @@ class AssetFile < ActiveRecord::Base
   
   belongs_to :account
   
-  scope :with_query, lambda { |s| where('name LIKE ? OR file_name LIKE ?', "%{s}%", "%{s}%") }
+  scope :with_query, lambda { |s| where('name LIKE ? OR file_name LIKE ?', "%#{s}%", "%#{s}%") }
   
   def datastore
     return nil unless file
