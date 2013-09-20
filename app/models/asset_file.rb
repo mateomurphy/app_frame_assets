@@ -16,6 +16,10 @@ class AssetFile < ActiveRecord::Base
     datastore.storage.get_object_http_url(datastore.bucket_name, file_uid, expires, opts)
   end  
   
+  def safe_file_name
+    ActiveSupport::Inflector.transliterate(file_name)
+  end
+  
   def to_s
     name.present? ? name : file_name
   end
