@@ -12,6 +12,8 @@ class AssetFile < ActiveRecord::Base
   end
   
   def object_url(opts = {})
+    return nil unless file
+    
     expires = opts[:expires] || 1.week.from_now
     datastore.storage.get_object_http_url(datastore.bucket_name, file_uid, expires, opts)
   end  
