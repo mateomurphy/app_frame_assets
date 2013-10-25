@@ -7,6 +7,6 @@ class AssetAttachment < ActiveRecord::Base
   
   acts_as_list :scope => [:type, :attached_to_type, :attached_to_id]
   
-  delegate :file, :to => :asset_file
+  delegate :file, :to_s, :to => :asset_file
   
 end
