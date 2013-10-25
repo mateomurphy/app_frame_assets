@@ -19,7 +19,7 @@ class AssetFile < ActiveRecord::Base
   end  
   
   def safe_file_name
-    ActiveSupport::Inflector.transliterate(file_name)
+    ActiveSupport::Inflector.transliterate(file_name) if file_name.present?
   end
   
   def to_s
