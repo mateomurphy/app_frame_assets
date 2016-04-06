@@ -5,8 +5,8 @@ module AppFrameAssets
     initializer "app_frame_assets.setup_dragonfly" do |app|
       Config.setup :images, :image_accessor
       Config.setup :media, :media_accessor
-      
-      app.middleware.insert_after 'Rack::Lock', 'Dragonfly::Middleware', :images      
+
+      app.middleware.insert_after 'Rack::Lock', 'Dragonfly::Middleware', :images
     end
   end
 end
